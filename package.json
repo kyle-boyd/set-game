@@ -1,4 +1,5 @@
 {
+  "homepage": "https://kyle-boyd.github.io/set-game",
   "name": "set-game",
   "private": true,
   "version": "0.0.0",
@@ -7,7 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -25,4 +28,5 @@
     "globals": "^16.4.0",
     "vite": "^7.1.7"
   }
+  
 }
