@@ -1,0 +1,254 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+  font-family: "Figtree", sans-serif;
+  
+  /* Create dotted pattern */
+  background-image: 
+    radial-gradient(circle, #bb83d2 1px, transparent 1px);
+  background-size: 4px 4px; /* spacing of dots */
+
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 80px;
+}
+
+h1 {
+  color: #1b1b1b;
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+button {
+  padding: 8px 20px;
+  margin: 0 8px 20px 0;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow:
+      2px 2px 0px #000,
+      4px 4px 0px #000;
+}
+
+button:hover {
+  transform: translateY(-2px);
+    box-shadow:
+      2px 2px 0px #000,
+      4px 4px 0px #000,
+      6px 6px 0px #000;
+}
+
+.new-game {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.new-game:hover {
+  background-color: #2563eb;
+}
+
+.hint {
+  background-color: #10b981;
+  color: white;
+}
+
+.hint:hover {
+  background-color: #059669;
+}
+
+.message {
+  font-size: 18px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 15px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  justify-items: center;
+  width: 100%;
+  max-width: 1200px; /* maximum width of grid container */
+  margin-bottom: 30px;
+}
+
+
+
+.card {
+  width: 98%; /* takes full width of grid cell */
+  aspect-ratio: 4/3; /* keeps cards 3:4 ratio (width:height) */
+  background-color: white;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.card.fading {
+  opacity: 0;
+  transform: scale(0.8);
+  border: 2px solid #14a371;
+  box-shadow:
+      2px 2px 0px #000,
+      4px 4px 0px #000;
+  background-image: 
+    radial-gradient(circle, #14a371 1px, transparent 1px);
+  background-size: 8px 8px; /* spacing of dots */
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow:
+      2px 2px 0px #000,
+      4px 4px 0px #000,
+      6px 6px 0px #000;
+}
+
+
+.card.selected {
+  
+  
+  border-color: #0400ff;
+  box-shadow:
+      2px 2px 0px #000,
+      4px 4px 0px #000;
+  background-image: 
+    radial-gradient(circle, #0400ff 1px, transparent 1px);
+  background-size: 8px 8px; /* spacing of dots */
+}
+
+.card.hinted {
+  border-color: #14a371 ;
+  box-shadow:
+      2px 2px 0px #14a371,
+      4px 4px 0px #14a371;
+  background-image: 
+    radial-gradient(circle, #14a371 1px, transparent 1px);
+  background-size: 8px 8px; /* spacing of dots */
+  transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+.card-content {
+  display: flex;
+  gap: 0px;
+}
+
+.card.wrong {
+  border-color: #b53628;
+  transition: border 0.3s ease;
+  box-shadow:
+      2px 2px 0px #b53628,
+      4px 4px 0px #b53628;
+  background-image: 
+    radial-gradient(circle, #b53628 1px, transparent 1px);
+  background-size: 8px 8px; /* spacing of dots */
+}
+
+
+.shape-svg {
+  width: 9vw;
+  max-width: 80px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal {
+  padding: 16px;
+  background: #f4f4f4;
+  border: 2px solid black;
+  box-shadow: 4px 4px 0 black;
+  border-radius: 12px;
+}
+
+
+
+.modal-title {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.modal-text {
+  margin-bottom: 1rem;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modal-btn {
+  border: 2px solid black;
+  background: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.modal-btn.cancel:hover {
+  background: #ddd;
+  box-shadow: 4px 4px 0 black;
+}
+
+.modal-btn.confirm {
+  background: #ff4444;
+  color: white;
+}
+
+.modal-btn.confirm:hover {
+  background: #e63737;
+}
+
+
+
+@media (min-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr); /* always 4 cards per row on desktop */
+  }
+
+}
+
+@media (max-width: 1200px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row on tablet */
+    column-gap: 8px;
+  }
+
+}
+
+/* Small screens (phones) */
+@media (max-width: 700px) {
+
+
+  .app-container {
+    padding: 16px;
+  }
+
+}
